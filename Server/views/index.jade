@@ -1,5 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+        form.well(id='form-welcome', action = '/login', method='get').text-center
+            h1= title
+            p Welcome to #{title}
+            button.btn.btn-primary.button-sign-in Login
+
+
+
