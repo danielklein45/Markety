@@ -12,10 +12,12 @@ router.use('/', function(req, res){
 
     newUser.save(function (err) {
     if (err) {
-        return err;
+        console.error(err);
+        res.send("User already exist");
     }
     else {
         console.log("User saved");
+        res.render('login');
     }
 });
 
