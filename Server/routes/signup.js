@@ -8,19 +8,17 @@ router.get('/', function (req,res) {
 });
 
 router.use('/', function(req, res){
-    var newUser = new User({Username: req.body['user'], Password: req.body['pass']});
-
-    newUser.save(function (err) {
-    if (err) {
-        console.error(err);
-        res.send("User already exist");
-    }
-    else {
-        console.log("User saved");
-        res.render('login');
-    }
-});
-
+    User.createNewUser(req.body['user'], req.body['pass'], function (err) {
+        if (err) {
+            console.error(err);
+            res.send("User already exist");
+        }
+        else {
+            console.log(res);
+            console.log("User saved");
+            res.render('login');
+        }
+    });
 });
 
 

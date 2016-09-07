@@ -4,11 +4,18 @@ var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 var db = mongoose.connect('mongodb://127.0.0.1:27017/test');
 
-//create schema for blog post
-var user = new mongoose.Schema({
+var user = mongoose.model('user', {
     Username:  {type: String, unique: true},
     Password: {type: String}
 });
 
-//compile schema to model
-module.exports = db.model('user', user);
+
+function createNewUser(newuser, newpassword, callable){
+    var newUser = new user({Username: newuser, Password: newpassword});
+
+    newUser.save(function (err) {
+        callable.call(this, err);
+    });
+}
+
+module.exports.createNewUser = createNewUser;
