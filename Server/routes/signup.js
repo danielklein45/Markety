@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var UM = require('DB/Users');
+//var UM = require('DB/Users');
 
 router.get('/', function (req,res) {
     res.render('signup');
