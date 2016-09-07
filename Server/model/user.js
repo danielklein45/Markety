@@ -18,4 +18,16 @@ function createNewUser(newuser, newpassword, callable){
     });
 }
 
+function authenticate(userToCheck, password, callable) {
+    user.find({Username: userToCheck, Password: password}, function (err, docs) {
+        if (docs.length===1){
+            callable.call(this)
+        }
+        else {
+            callable(this, "Not Found")
+        }
+    });
+}
+
 module.exports.createNewUser = createNewUser;
+module.exports.authenticate = authenticate;
