@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+    nav
+        // suppose title local denotes the active nav item
+        - var nav = {}; nav[title] = 'active'
+        ul
+            // pass title to li class via nav object
+            li(class='#{nav.Home}')
+
+                // different href and anchor text
+                a(href='/') Home
+            li(class='#{nav.About}')
+                a(href='/about') About
+            li(class='#{nav.Contact}')
+                a(href='/contact') Contact

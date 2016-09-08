@@ -14,7 +14,8 @@ router.use('/', function(req, res){
             res.send("Bad Username or Password")
         }
         else {
-            res.send("OK")
+            //res.render('home')
+            res.render('home')
         }
     });
 });
