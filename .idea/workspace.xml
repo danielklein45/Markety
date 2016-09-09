@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0549caa9-96f5-479d-8eee-ac27216ad274" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/routes/home.js" afterPath="$PROJECT_DIR$/Server/routes/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/routes/login.js" afterPath="$PROJECT_DIR$/Server/routes/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/views/home.jade" afterPath="$PROJECT_DIR$/Server/views/home.jade" />
     </list>
     <ignored path="Markety.iws" />
@@ -40,8 +37,8 @@
       <file leaf-file-name="home.jade" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Server/views/home.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
+            <state relative-caret-position="285">
+              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -94,8 +91,8 @@
         <option value="$PROJECT_DIR$/Server/app.js" />
         <option value="$PROJECT_DIR$/Server/views/layout.jade" />
         <option value="$PROJECT_DIR$/Server/routes/home.js" />
-        <option value="$PROJECT_DIR$/Server/views/home.jade" />
         <option value="$PROJECT_DIR$/Server/routes/login.js" />
+        <option value="$PROJECT_DIR$/Server/views/home.jade" />
       </list>
     </option>
   </component>
@@ -752,12 +749,12 @@
       <workItem from="1473262995415" duration="8290000" />
       <workItem from="1473272937557" duration="373000" />
       <workItem from="1473273540654" duration="12497000" />
-      <workItem from="1473332779982" duration="9622000" />
+      <workItem from="1473332779982" duration="9966000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40964000" />
+    <option name="totallyTimeSpent" value="41308000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1295" height="744" extended-state="6" />
@@ -1120,14 +1117,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/routes/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/routes/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1136,10 +1125,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Server/routes/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Server/views/home.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
+        <state relative-caret-position="285">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding />
         </state>
       </provider>
