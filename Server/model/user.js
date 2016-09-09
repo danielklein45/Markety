@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 //connect to database
 mongoose.Promise = global.Promise;
-var db = mongoose.connect('mongodb://127.0.0.1:27017/test');
+var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
 
 var user = mongoose.model('user', {
     Username:  {type: String, unique: true},
