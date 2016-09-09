@@ -1,3 +1,4 @@
+
 link(rel='stylesheet', href='/stylesheets/bootstrap.css')
 
 .navbar.navbar-inverse.navbar-fixed-top
@@ -10,9 +11,18 @@ link(rel='stylesheet', href='/stylesheets/bootstrap.css')
             a.brand(href='/') Markety
             .nav-collapse.collapse
                 ul.nav
-                    li.active: a(href='/') Home
+                    li.active: a(href='/Cart') Shopping Cart
                     li: a(href='/') About
-                    li: a(href='/') Contact
+
+block content
+    br
+    br
+    br
+    .container
+        //h1 = username
+        h1 Welcome #{username}
+
+
 
 
 
