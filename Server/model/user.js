@@ -1,8 +1,6 @@
 var mongoose = require("mongoose");
 
-//connect to database
 mongoose.Promise = global.Promise;
-var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
 
 var user = mongoose.model('user', {
     Username:  {type: String, unique: true},
@@ -11,6 +9,7 @@ var user = mongoose.model('user', {
 
 
 function createNewUser(newuser, newpassword, callable){
+    var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
     var newUser = new user({Username: newuser, Password: newpassword});
 
     newUser.save(function (err) {
@@ -19,6 +18,7 @@ function createNewUser(newuser, newpassword, callable){
 }
 
 function authenticate(userToCheck, password, callable) {
+    var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
     user.find({Username: userToCheck, Password: password}, function (err, docs) {
         if (docs.length===1){
             callable.call(this)

@@ -14,7 +14,7 @@ router.use('/', function(req, res, http){
             res.send("Bad Username or Password")
         }
         else {
-            res.render('home', {username: req.body['user']});
+            res.redirect('home/?username=' + req.body['user']);
         }
     });
 });

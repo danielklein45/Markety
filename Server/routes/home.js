@@ -3,9 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-    res.render('home', {username: "test"});
+    res.render('home', {username: req.query.username});
 });
-
-
 
 module.exports = router;

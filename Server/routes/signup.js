@@ -16,7 +16,7 @@ router.use('/', function(req, res){
         else {
             console.log(res);
             console.log("User saved");
-            res.render('login');
+            res.redirect('login');
         }
     });
 });
