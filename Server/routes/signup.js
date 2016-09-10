@@ -14,7 +14,6 @@ router.use('/', function(req, res){
             res.send("User already exist");
         }
         else {
-            console.log(res);
             console.log("User saved");
             res.redirect('login');
         }

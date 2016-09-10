@@ -16,24 +16,45 @@ function populateStores(callable) {
         Name: "Shufersal",
         Address: "Tel-Aviv"
     });
-    store1.save();
+    store1.save(function (err) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("store1 saved");
+        }
+    });
 
     var store2 = new store({
         StoreID: 2,
         Name: "Mega",
         Address: "Givataim"
     });
-    store2.save();
+
+    store2.save(function (err) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("store2 saved");
+        }
+    });
 
     var store3 = new store({
         StoreID: 3,
         Name: "Rami-Levi",
         Address: "Haifa"
     });
-    store3.save();
 
-    callable.call();
+    store3.save(function (err) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("store3 saved");
+            callable.call();
+        }
+    });
 }
-
 module.exports.populateStores = populateStores;
 

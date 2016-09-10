@@ -12,6 +12,7 @@ var product = mongoose.model('product', {
 });
 
 function populateProduct(callable) {
+    var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
     var product1 = new product({
         ProductID: 1,
         Name: "Shampoo",
@@ -20,7 +21,14 @@ function populateProduct(callable) {
         Price: 22.45,
         Position: 3
     });
-    product1.save();
+    product1.save(function (err) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("product1 saved");
+        }
+    });
 
     var product2 = new product({
         ProductID: 2,
@@ -30,8 +38,14 @@ function populateProduct(callable) {
         Price: 30,
         Position: 2
     });
-
-    product2.save();
+    product2.save(function (err) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("product2 saved");
+        }
+    });
 
     var product3 = new product({
         ProductID: 3,
@@ -41,7 +55,14 @@ function populateProduct(callable) {
         Price: 15,
         Position: 3
     });
-    product3.save();
+    product3.save(function (err) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("product3 saved");
+        }
+    });
 
     var product4 = new product({
         ProductID: 4,
@@ -51,7 +72,14 @@ function populateProduct(callable) {
         Price: 13.45,
         Position: 2
     });
-    product4.save();
+    product4.save(function (err) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("product4 saved");
+        }
+    });
 
     var product5 = new product({
         ProductID: 5,
@@ -61,7 +89,14 @@ function populateProduct(callable) {
         Price: 7.45,
         Position: 5
     });
-    product5.save();
+    product5.save(function (err) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("product5 saved");
+        }
+    });
 
     var product6 = new product({
         ProductID: 6,
@@ -71,8 +106,14 @@ function populateProduct(callable) {
         Price: 3.25,
         Position: 5
     });
-    product6.save();
-
+    product6.save(function (err) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("product6 saved");
+        }
+    });
     var product7 = new product({
         ProductID: 7,
         Name: "Chocolate",
@@ -81,9 +122,14 @@ function populateProduct(callable) {
         Price: 5.25,
         Position: 5
     });
-    product7.save();
-
-    callable.call();
+    product7.save(function (err) {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("product7 saved");
+            callable.call();
+        }
+    });
 }
-
 module.exports.populateProducts = populateProduct;
