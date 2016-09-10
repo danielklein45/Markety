@@ -36,7 +36,7 @@ function authenticate(userToCheck, password, callable) {
 function populateUsers(callable) {
     var user1 = new user({
         Username: "Daniel",
-        Password: 123456
+        Password: '123456'
     });
     user1.save(function (err) {
         if (err) {
