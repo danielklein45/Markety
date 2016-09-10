@@ -41,4 +41,16 @@ function populateCarts(callable) {
     });
 }
 
+function getCartsByUsername(username, callable) {
+    var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
+
+    cart.find({Username: username},'_id', function(err, docs){
+        console.log(docs);
+        mongoose.connection.close();
+        callable(null, docs)
+    })
+
+}
+
 module.exports.populateCarts = populateCarts;
+module.exports.getCartsByUsername = getCartsByUsername;
