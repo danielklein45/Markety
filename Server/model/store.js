@@ -2,7 +2,6 @@ var mongoose = require("mongoose");
 
 //connect to database
 mongoose.Promise = global.Promise;
-//
 
 var store = mongoose.model('store', {
     StoreID:  {type: Number, unique: true},
@@ -56,5 +55,17 @@ function populateStores(callable) {
         }
     });
 }
+
+function getStores(callable){
+    var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
+
+    store.find({}, function(err, docs){
+        console.log(docs);
+        mongoose.connection.close();
+        callable(null, docs);
+    })
+}
+
 module.exports.populateStores = populateStores;
+module.exports.getStores = getStores;
 

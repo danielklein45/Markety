@@ -2,9 +2,9 @@ var product = require('./product');
 var store = require('./store');
 var user = require('./user');
 var cart = require('./cart');
+var report = require('./report');
 
 var mongoose = require("mongoose");
-//var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
 
 function populateDB(callable) {
     product.populateProducts(function() {
@@ -23,9 +23,15 @@ function populateDB(callable) {
     });
 
     cart.populateCarts(function() {
-        console.log("Populate carts finished");
-        callable.call();
+        console.log("Populate carts finished")
     });
+
+    report.populateReports(function() {
+        console.log("Populate reports finished");
+        callable.call();
+    })
+
+
 }
 
 populateDB(function () {
