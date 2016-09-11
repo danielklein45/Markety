@@ -1,6 +1,15 @@
 extends layout
 extends home
 
+//block script
+//    script.
+//        var click = function openCartDetails(cartID){
+//            var name = '/cartDetails/?';
+//            name = name + cartID;
+//            name = name + '=';
+//            window.location.href = name;
+//            }
+
 block content
     br
     br
@@ -11,5 +20,17 @@ block content
                 span.glyphicon.glyphicon-lock
                 | Create New Shopping Cart
     .container
-        h2 Existing Carts
-        p #{id}
+        h4 Existing Carts
+        div
+            table
+                tbody
+                    each cart in cartsList
+                        tr
+                            td
+                                #cartDetails.center-vertical
+                                    form.well(id=cart._id, action=('/cartDetails'))
+                                        input(type="hidden",name='id', value=cart._id)
+                                        .controls
+                                            button().btn.btn-primary.button-sign-in
+                                                span.glyphicon.glyphicon-lock
+                                                | #{cart.CartName}
