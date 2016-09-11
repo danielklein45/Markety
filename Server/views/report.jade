@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+    #report.center-vertical
+        form.well(id='form-report', method='post')
+            h2 Report a Problem
+            .form-group
+                label Store
+                select(name = "dropdown")
+                    each store in storesList
+                        option(value=store._id) #{store.Name}
+            .form-group
+                label Problem
+                input.input-xlarge(type='text', id='Problem', name='problem')
+            .controls
+                button(type='submit').btn.btn-primary.button-sign-in
+                    span.glyphicon.glyphicon-lock
+                    | Report
