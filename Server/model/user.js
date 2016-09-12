@@ -9,24 +9,21 @@ var user = mongoose.model('user', {
 
 
 function createNewUser(newuser, newpassword, callable){
-    var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
     var newUser = new user({Username: newuser, Password: newpassword});
 
     newUser.save(function (err) {
-        mongoose.connection.close();
+        //mongoose.connection.close();
         callable.call(this, err);
     });
 }
 
 function authenticate(userToCheck, password, callable) {
-    var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
     user.find({Username: userToCheck, Password: password}, function (err, docs) {
         if (docs.length===1){
-            mongoose.connection.close();
+            //mongoose.connection.close();
             callable.call(this);
         }
         else {
-            mongoose.connection.close();
             callable(this, "Not Found")
 
         }

@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 //iireport = require('../model/report');
 
-var report = mongoose.model('report', {
+var report = Schema({
     UserID: {type: String},
     Description: {type: String}
 });
@@ -15,7 +15,7 @@ var store = mongoose.model('store', {
     StoreID:  {type: Number, unique: true},
     Name: {type: String},
     Address: {type: String},
-    Reports: Array
+    Reports: [report]
 });
 
 function populateStores(callable) {
@@ -24,8 +24,8 @@ function populateStores(callable) {
         Name: "Shufersal",
         Address: "Tel-Aviv",
         Reports: [
-            {UserID: "Daniel", Description: "Bad Location"},
-            {UserID: "Daniel", Description: "BadPrice"}
+            {UserID: "Daniel", Description: "The Shampoo is in the wrong row"},
+            {UserID: "Daniel", Description: "The price of the Bisly is 7.45"}
         ]
     });
     store1.save(function (err) {
@@ -41,10 +41,8 @@ function populateStores(callable) {
         StoreID: 2,
         Name: "Mega",
         Address: "Givataim",
-        Reports: [
-            {UserID: "Roi", Description: "Bad Location"},
-            {UserID: "Roi", Description: "BadPrice"}
-        ]
+        Reports: []
+
     });
 
     store2.save(function (err) {
@@ -60,10 +58,7 @@ function populateStores(callable) {
         StoreID: 3,
         Name: "Rami-Levi",
         Address: "Haifa",
-        Reports: [
-            {UserID: "Liat", Description: "Bad Location"},
-            {UserID: "Liat", Description: "BadPrice"}
-        ]
+        Reports: []
 
     });
 
@@ -79,10 +74,6 @@ function populateStores(callable) {
 }
 
 function getStores(callable){
-    //mongoose.connection.close();
-    //var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
-
-
     store.find({}, function(err, docs){
         console.log(docs);
         //mongoose.connection.close();
@@ -92,13 +83,10 @@ function getStores(callable){
 
 function addNewReport(newuser, storeid, description, callable) {
     console.log("addNewReport");
-    //var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
     store.update({_id: storeid}, {$push: {"Reports": {UserID: newuser, Description: description}}}, function (err) {
         if (err) {
             console.log(err);
-            //mongoose.connection.close();
         } else {
-            //mongoose.connection.close();
             callable.call(this, err);
         }
     });

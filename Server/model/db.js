@@ -2,7 +2,6 @@ var product = require('./product');
 var store = require('./store');
 var user = require('./user');
 var cart = require('./cart');
-var report = require('./report');
 
 var mongoose = require("mongoose");
 
@@ -23,15 +22,9 @@ function populateDB(callable) {
     });
 
     cart.populateCarts(function() {
-        console.log("Populate carts finished")
-    });
-
-    report.populateReports(function() {
-        console.log("Populate reports finished");
+        console.log("Populate carts finished");
         callable.call();
-    })
-
-
+    });
 }
 
 populateDB(function () {

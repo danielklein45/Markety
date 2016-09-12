@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongo = require('mongodb');
+var mongoose = require("mongoose");
 var routes = require('./routes/index');
 var login = require('./routes/login');
 var signup = require('./routes/signup');
@@ -15,7 +16,7 @@ var cartDetails = require('./routes/cartDetails');
 var report = require('./routes/report');
 
 var app = express();
-
+var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
