@@ -1,7 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-//iireport = require('../model/report');
 
 var report = Schema({
     UserID: {type: String},

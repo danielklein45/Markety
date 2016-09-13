@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-//var report = require("../model/report");
 var store = require("../model/store");
 
 
@@ -17,7 +16,6 @@ router.get('/', function(req, res) {
 });
 
 router.use('/', function(req, res){
-    //console.log(req);
     store.addNewReport(req.session.user, req.body['dropdown'], req.body['problem'], function(err) {
         if (err){
             console.log(err)

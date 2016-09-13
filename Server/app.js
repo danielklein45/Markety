@@ -16,6 +16,7 @@ var home = require('./routes/home');
 var cart = require('./routes/cart');
 var cartDetails = require('./routes/cartDetails');
 var report = require('./routes/report');
+var managerreport = require('./routes/managerreport');
 
 var app = express();
 var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
@@ -45,7 +46,7 @@ app.use('/home', home);
 app.use('/cart', cart);
 app.use('/cartDetails', cartDetails);
 app.use('/report', report);
-
+app.use('/reports', managerreport);
 
 
 // catch 404 and forward to error handler
