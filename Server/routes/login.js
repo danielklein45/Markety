@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 router.use('/', function(req, res, http){
     User.authenticate(req.body['user'], req.body['pass'], function (err) {
         if (err){
-            res.send("Bad Username or Password")
+            res.render('login', {message: "Bad Username or Password"})
         }
         else {
             req.session.user = req.body['user'];
