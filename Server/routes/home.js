@@ -3,7 +3,12 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-    res.render('home', {username: req.query.username});
+    if (req.session){
+        res.render('home', {username: req.session.user});
+    }
+    else {
+        res.send("No existing session")
+    }
 });
 
 module.exports = router;

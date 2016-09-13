@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+
+
 var User = require("../model/user");
 
 /* GET users listing. */
@@ -14,7 +16,8 @@ router.use('/', function(req, res, http){
             res.send("Bad Username or Password")
         }
         else {
-            res.redirect('home/?username=' + req.body['user']);
+            req.session.user = req.body['user'];
+            res.redirect('home');
         }
     });
 });

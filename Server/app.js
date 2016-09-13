@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('client-sessions');
+var router = express.Router();
 
 var mongo = require('mongodb');
 var mongoose = require("mongoose");
@@ -28,6 +30,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    cookieName: 'session',
+    secret: 'random_string_goes_here',
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000
+}));
+app.use(router);
 
 app.use('/', routes);
 app.use('/login', login);
@@ -36,6 +45,8 @@ app.use('/home', home);
 app.use('/cart', cart);
 app.use('/cartDetails', cartDetails);
 app.use('/report', report);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

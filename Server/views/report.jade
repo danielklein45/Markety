@@ -1,10 +1,11 @@
 extends layout
+extends home
 
 block content
-
+    link(rel='stylesheet', href='/stylesheets/style.css')
     #report.center-vertical
         form.well(id='form-report', method='post')
-            h2 Report a Problem
+            h2 Report a Problem #{username}
             .form-group
                 label Store
                 select(name = "dropdown")

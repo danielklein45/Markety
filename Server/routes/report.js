@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
 
 router.use('/', function(req, res){
     //console.log(req);
-    store.addNewReport("Daniel", req.body['dropdown'], req.body['problem'], function(err) {
+    store.addNewReport(req.session.user, req.body['dropdown'], req.body['problem'], function(err) {
         if (err){
             console.log(err)
         }
