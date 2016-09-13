@@ -46,6 +46,18 @@ function populateUsers(callable) {
     });
 }
 
+function getStoresManagerByUsername(username, callable){
+    user.findOne({Username: username}, "StoresManager", function(err, docs){
+        if (err){
+            console.log(err)
+        }
+        else{
+            callable(null, docs)
+        }
+    })
+}
+
 module.exports.populateUsers = populateUsers;
 module.exports.createNewUser = createNewUser;
 module.exports.authenticate = authenticate;
+module.exports.getStoresManagerByUsername = getStoresManagerByUsername;

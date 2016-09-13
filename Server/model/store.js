@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
+var user = require('../model/user');
 
 var report = Schema({
     UserID: {type: String},
@@ -75,7 +76,6 @@ function populateStores(callable) {
 function getStores(callable){
     store.find({}, function(err, docs){
         console.log(docs);
-        //mongoose.connection.close();
         callable(null, docs);
     })
 }
@@ -91,6 +91,24 @@ function addNewReport(newuser, storeid, description, callable) {
     });
 }
 
+function getReportsManagerReport(username, callable){
+    user.getStoresManagerByUsername(username, function(err, docs){
+        console.log(docs.StoresManager);
+        store.find({StoreID: { "$in" : docs.StoresManager}}, "Reports", function(err, docs){
+            console.log(docs);
+            if (err){
+                console.log(err)
+            }
+            else{
+                console.log(docs[0].Reports);
+                callable(null, docs[0].Reports)
+            }
+        });
+    });
+}
+
+module.exports.getReportsManagerReport = getReportsManagerReport;
 module.exports.populateStores = populateStores;
 module.exports.getStores = getStores;
 module.exports.addNewReport = addNewReport;
+

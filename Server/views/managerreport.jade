@@ -6,4 +6,15 @@ block content
     br
     br
     .container
-        h1 Reports for Store x
+        h1 Manager Reports
+        div
+            table(class="table table-condensed", style="margin-top: 16px; color: black;")
+                thead
+                    tr
+                        th Description
+                        th Reported By
+                tbody
+                    each report in reports
+                        tr
+                            td #{report.Description}
+                            td #{report.UserID}
