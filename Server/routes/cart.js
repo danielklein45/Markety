@@ -1,22 +1,18 @@
 var express = require('express');
 var router = express.Router();
-
-var cart = require('../model/cart');
+var user = require('../model/user');
 
 router.get('/', function(req, res) {
-    cart.getCartsByUsername("Daniel", function(err, docs){
+    user.getAllCartsByUsername(req.session.user, function(err, docs){
         if(err){
-            res.send(err);
+            console.log(err);
         }
         else if(docs.length){
-            for(var i=0; i<docs.length; i++){
-                console.log(docs[i].ProductID);
-            }
-
+            console.log(docs);
             res.render('cart', {cartsList : docs});
         }
         else {
-            res.render('No carts found');
+            res.render('cart', {cartsList : docs, message: "No carts found"});
         }
     })
 });
