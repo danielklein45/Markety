@@ -15,7 +15,7 @@ block content
         div
             if (cartsList.length)
                 form.well()
-                    table
+                    table(class="table table-condensed", style="margin-top: 16px; color: black;")
                         thead
                             tr
                                 th Cart Name
@@ -29,11 +29,11 @@ block content
                                     td(align='center') #{cart.ProductID.length}
                                     td(align='center') it's all for free!
                                     td(align='center')
+
                                         #cartDetails.center-vertical
                                             form(id=cart._id, action=('/cartDetails'))
                                                 input(type="hidden",name='id', value=cart._id)
                                                 .controls
-                                                    button()
-                                                        span.glyphicon.glyphicon-lock
-                                                        | Edit Cart
+                                                    a.btn( href="/cartDetails?id=" + cart._id ) Edit Cart
+
     label #{message}

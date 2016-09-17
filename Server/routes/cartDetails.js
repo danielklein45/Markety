@@ -5,7 +5,7 @@ var product = require('../model/product');
 var store = require('../model/store')
 
 router.get('/', function(req, res) {
-    console.log(req);
+    //console.log(req);
     var cartId = (req.query['id']);
     var action = (req.query['action']);
 
