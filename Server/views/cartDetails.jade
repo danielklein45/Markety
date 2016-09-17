@@ -8,7 +8,7 @@ block content
 
         h4
             font(color='blue') #{cart.CartName + '       '}
-            font(size='2') #{' : ' + storeName}
+            //font(size='2') #{storeName}
 
         form.well(id='add', action=('/cartDetails'))
             input(type="hidden",name='action', value='add')

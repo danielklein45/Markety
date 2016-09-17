@@ -10,7 +10,7 @@ var report = Schema({
 
 
 var store = mongoose.model('store', {
-    StoreID:  {type: Number, unique: true},
+    StoreID:  {type: Number, unique: true, index: true},
     Name: {type: String},
     Address: {type: String},
     Reports: [report]
@@ -107,12 +107,12 @@ function getReportsManagerReport(username, callable){
 
 function getStoreNameById(storeId, callable) {
     console.log('(((1))) store id: ' + storeId);
-    store.find({StoreID: storeId}, {'_id':0, 'Name':1}, function (err, result) {
+    store.find({StoreID: storeId}, function (err, docs) {
         if (err) {
             console.log(err);
         } else {
-            console.log('(((2))) result: ' + result);
-            callable.call(null, result);
+            console.log('(((2))) result: ' + docs);
+            callable(null, docs);
         }
     });
 }

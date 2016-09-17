@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 var product = mongoose.model('product', {
-    ProductID: {type: Number, unique: true},
+    ProductID: {type: Number, unique: true, index: true},
     Name: {type: String},
     Description: {type: String},
     StoreID: {type: [Number]},

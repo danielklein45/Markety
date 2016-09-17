@@ -12,7 +12,7 @@ var cart = Schema({
 });
 
 var user = mongoose.model('user', {
-    Username:  {type: String, unique: true},
+    Username:  {type: String, unique: true, index: true},
     Password: {type: String},
     Carts: {type: [cart]},
     StoresManager: []

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var user = require('../model/user');
 var product = require('../model/product');
-var store = require('../model/store')
+var store = require('../model/store');
 
 router.get('/', function(req, res) {
     //console.log(req);
@@ -14,14 +14,17 @@ router.get('/', function(req, res) {
         user.getCartDetailsByCartId(cartId, function (err, currentCart) {
             product.getProductsByStoreId(currentCart.StoreID, function(err, storeProducts){
                 store.getStoreNameById(currentCart.StoreID, function(err, storeName){
+                    console.log("FirstStoreName" + storeName);
                     if (currentCart.ProductID.length > 0) {
                         product.getProductsDescriptionList(currentCart.ProductID, function (err, productArray) {
-                            console.log('((3)) store: ' + storeName);
-                            res.render('cartDetails', {cart: currentCart, storeProducts: storeProducts, products: productArray, storeName: storeName});
+                            console.log('((3)) store: ' + storeName.Name);
+                            res.render('cartDetails', {storeName: storeName, cart: currentCart, storeProducts: storeProducts, products: productArray});
                         })
                     }
                     else {
-                        res.render('cartDetails', {cart: currentCart, storeProducts: storeProducts, products: currentCart.ProductID, storeName: storeName});
+                        console.log("storename:" + storeName.Name);
+                        console.log("current curt" + currentCart.CartName);
+                        res.render('cartDetails', {storeName: storeName, cart: currentCart, storeProducts: storeProducts, products: currentCart.ProductID});
                     }
                 })
 
