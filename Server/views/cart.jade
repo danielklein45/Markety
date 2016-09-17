@@ -1,36 +1,39 @@
 extends layout
 extends home
 
-//block script
-//    script.
-//        var click = function openCartDetails(cartID){
-//            var name = '/cartDetails/?';
-//            name = name + cartID;
-//            name = name + '=';
-//            window.location.href = name;
-//            }
-
 block content
     br
     br
     br
     .container
-        form.well(id='new-cart', action='/new')
+        form(id='new-cart', action='/newCart')
             button.btn.btn-primary.button-sign-in
                 span.glyphicon.glyphicon-lock
                 | Create New Shopping Cart
     .container
         h4 Existing Carts
         div
-            table
-                tbody
-                    each cart in cartsList
-                        tr
-                            td
-                                #cartDetails.center-vertical
-                                    form.well(id=cart._id, action=('/cartDetails'))
-                                        input(type="hidden",name='id', value=cart._id)
-                                        .controls
-                                            button().btn.btn-primary.button-sign-in
-                                                span.glyphicon.glyphicon-lock
-                                                | #{cart.CartName}
+            if (cartsList.length)
+                form.well()
+                    table
+                        thead
+                            tr
+                                th Cart Name
+                                th Number of Products
+                                th Total Price
+                                th
+                        tbody
+                            for cart in cartsList
+                                tr
+                                    td(align='center') #{cart.CartName}
+                                    td(align='center') #{cart.ProductID.length}
+                                    td(align='center') it's all for free!
+                                    td(align='center')
+                                        #cartDetails.center-vertical
+                                            form(id=cart._id, action=('/cartDetails'))
+                                                input(type="hidden",name='id', value=cart._id)
+                                                .controls
+                                                    button()
+                                                        span.glyphicon.glyphicon-lock
+                                                        | Edit Cart
+    label #{message}

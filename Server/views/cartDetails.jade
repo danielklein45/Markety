@@ -2,4 +2,54 @@ extends layout
 extends home
 
 block content
-    p hi
+    br
+    br
+    .container
+
+        h4
+            font(color='blue') #{cart.CartName + '       '}
+            font(size='2') #{' : ' + storeName}
+
+        form.well(id='add', action=('/cartDetails'))
+            input(type="hidden",name='action', value='add')
+            input(type="hidden",name='cartId', value=cart._id)
+            .form-group
+                .form-group
+                    select(name="addProduct")
+                        each prod in storeProducts
+                            option(value=prod.ProductID) #{prod.Name} #{prod.Price} (#{prod.Description})
+                .controls
+                    button(type='submit').btn.btn-primary.button-sign-in
+                        span.glyphicon.glyphicon-lock
+                        | Add
+
+        .container
+            h5 Products
+            div
+                if (products.length > 0)
+                    table(class="table table-condensed table-striped", style="margin-top: 8px; color: black; font-size: 11px; border-spacing: 0;")
+                        thead
+                            tr
+                                th Product ID
+                                th Name
+                                th Description
+                                th Price
+                                th Position
+                        tbody
+                            each product in products
+                                tr
+                                    td #{product.ProductID}
+                                    td #{product.Name}
+                                    td #{product.Description}
+                                    td #{product.Price}
+                                    td #{product.Position}
+                                    td
+                                        //#cartDetails.center-vertical
+                                        form(id=product.ProductID, action=('/cartDetails'), style="width:15px; height:0px; vertical-align=top")
+                                            input(type="hidden",name='action', value='delete')
+                                            input(type="hidden",name='cartId', value=cart._id)
+                                            input(type="hidden",name='productId', value=product.ProductID)
+                                            .controls
+                                                button(style="font-size:10px; vertical-align=top").btn.btn-xs.btn-link
+                                                    //span.glyphicon.glyphicon-lock
+                                                    | Delete

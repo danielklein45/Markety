@@ -1,6 +1,5 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-
 var user = require('../model/user');
 
 var report = Schema({
@@ -8,8 +7,7 @@ var report = Schema({
     Description: {type: String}
 });
 
-//connect to database
-mongoose.Promise = global.Promise;
+
 
 var store = mongoose.model('store', {
     StoreID:  {type: Number, unique: true},
@@ -107,6 +105,19 @@ function getReportsManagerReport(username, callable){
     });
 }
 
+function getStoreNameById(storeId, callable) {
+    console.log('(((1))) store id: ' + storeId);
+    store.find({StoreID: storeId}, {'_id':0, 'Name':1}, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('(((2))) result: ' + result);
+            callable.call(null, result);
+        }
+    });
+}
+
+module.exports.getStoreNameById = getStoreNameById;
 module.exports.getReportsManagerReport = getReportsManagerReport;
 module.exports.populateStores = populateStores;
 module.exports.getStores = getStores;

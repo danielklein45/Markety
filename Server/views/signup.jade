@@ -6,17 +6,15 @@ block content
 
     #account-form-container.center-vertical
         form(method="post")#account-form.form-horizontal.well
-            h2 Create a New User
+            h3 New User Details
             hr
             .form-group
                 label Username
-                .col-sm-9
-                    input.form-control#user-tf(type='text', name='user', value= user.user).disabled
+                input.form-control#user-tf(type='text', name='user', value= user.user).disabled
 
             .form-group
                 label Password
-                .col-sm-9
-                    input.form-control#pass-tf(type='password', name='pass', value='')
+                input.form-control#pass-tf(type='password', name='pass', value='')
             hr
             .form-buttons
                 button(type='submit')#account-form-btn2.btn.btn-primary

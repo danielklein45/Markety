@@ -6,7 +6,7 @@ var product = mongoose.model('product', {
     ProductID:  {type: Number, unique: true},
     Name: {type: String},
     Description: {type: String},
-    StoreID: {type: Number},
+    StoreID: {type: [Number]},
     Price: {type: Number},
     Position: {type: Number}
 });
@@ -17,7 +17,7 @@ function populateProduct(callable) {
         ProductID: 1,
         Name: "Shampoo",
         Description: "Head&Shoulders",
-        StoreID: 1,
+        StoreID: [1],
         Price: 22.45,
         Position: 3
     });
@@ -34,7 +34,7 @@ function populateProduct(callable) {
         ProductID: 2,
         Name: "IceCream",
         Description: "Vanile",
-        StoreID: 1,
+        StoreID: [1],
         Price: 30,
         Position: 2
     });
@@ -51,7 +51,7 @@ function populateProduct(callable) {
         ProductID: 3,
         Name: "Cheese",
         Description: "Osem",
-        StoreID: 1,
+        StoreID: [1],
         Price: 15,
         Position: 3
     });
@@ -68,7 +68,7 @@ function populateProduct(callable) {
         ProductID: 4,
         Name: "Cream Cheese",
         Description: "Osem",
-        StoreID: 1,
+        StoreID: [1],
         Price: 13.45,
         Position: 2
     });
@@ -85,7 +85,7 @@ function populateProduct(callable) {
         ProductID: 5,
         Name: "Bamba",
         Description: "Osem",
-        StoreID: 1,
+        StoreID: [1,2],
         Price: 7.45,
         Position: 5
     });
@@ -102,7 +102,7 @@ function populateProduct(callable) {
         ProductID: 6,
         Name: "Bisli",
         Description: "Osem",
-        StoreID: 1,
+        StoreID: [1,2,3],
         Price: 3.25,
         Position: 5
     });
@@ -118,7 +118,7 @@ function populateProduct(callable) {
         ProductID: 7,
         Name: "Chocolate",
         Description: "Osem",
-        StoreID: 1,
+        StoreID: [1],
         Price: 5.25,
         Position: 5
     });
@@ -132,4 +132,33 @@ function populateProduct(callable) {
         }
     });
 }
+
+function getProductsDescriptionList(productIds, callable) {
+    console.log("(1) started getProductsDescriptionList()");
+    product.find({'ProductID': {$in: productIds}}, function(err, docs){
+        if (err){
+            console.log(err)
+        }
+        else{
+            console.log("FOUND:::::: " + docs);
+            callable(null, docs);
+        }
+    })
+}
+
+function getProductsByStoreId(storeID, callable){
+    console.log("(1) started getProductsByStoreId() with storeID: " + storeID);
+    product.find({'StoreID': storeID}, function(err, docs){
+        if (err){
+            console.log(err)
+        }
+        else{
+            console.log("FOUND::PRODUCTS:::: " + docs);
+            callable(null, docs);
+        }
+    })
+}
+
+module.exports.getProductsByStoreId =getProductsByStoreId;
+module.exports.getProductsDescriptionList =getProductsDescriptionList;
 module.exports.populateProducts = populateProduct;

@@ -6,9 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('client-sessions');
 var router = express.Router();
-
 var mongo = require('mongodb');
 var mongoose = require("mongoose");
+var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
+
+// ROUTES
 var routes = require('./routes/index');
 var login = require('./routes/login');
 var signup = require('./routes/signup');
@@ -17,13 +19,12 @@ var cart = require('./routes/cart');
 var cartDetails = require('./routes/cartDetails');
 var report = require('./routes/report');
 var managerreport = require('./routes/managerreport');
+var newCart = require('./routes/newCart');
 
+// APP SETTINGS
 var app = express();
-var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -37,8 +38,9 @@ app.use(session({
     duration: 30 * 60 * 1000,
     activeDuration: 5 * 60 * 1000
 }));
-app.use(router);
 
+//
+app.use(router);
 app.use('/', routes);
 app.use('/login', login);
 app.use('/signup', signup);
@@ -47,6 +49,7 @@ app.use('/cart', cart);
 app.use('/cartDetails', cartDetails);
 app.use('/report', report);
 app.use('/reports', managerreport);
+app.use('/newCart', newCart);
 
 
 // catch 404 and forward to error handler

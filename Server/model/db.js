@@ -1,7 +1,6 @@
 var product = require('./product');
 var store = require('./store');
 var user = require('./user');
-var cart = require('./cart');
 
 var mongoose = require("mongoose");
 
@@ -20,14 +19,10 @@ function populateDB(callable) {
         console.log("Populate users finished")
 
     });
-
-    cart.populateCarts(function() {
-        console.log("Populate carts finished");
-        callable.call();
-    });
 }
 
 populateDB(function () {
-    console.log("Populate DB Finished");
+    console.log("Populate DB started");
+    console.log("Populate DB finished");
     process.exit(0)
 });
