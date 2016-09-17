@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0549caa9-96f5-479d-8eee-ac27216ad274" name="Default" comment="cart details">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Server_node_modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Server/model/cart.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/Server.iml" afterPath="$PROJECT_DIR$/Server/Server.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/app.js" afterPath="$PROJECT_DIR$/Server/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/model/db.js" afterPath="$PROJECT_DIR$/Server/model/db.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/model/product.js" afterPath="$PROJECT_DIR$/Server/model/product.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/model/store.js" afterPath="$PROJECT_DIR$/Server/model/store.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/model/user.js" afterPath="$PROJECT_DIR$/Server/model/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/Server/public/stylesheets/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/routes/cart.js" afterPath="$PROJECT_DIR$/Server/routes/cart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/routes/cartDetails.js" afterPath="$PROJECT_DIR$/Server/routes/cartDetails.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/views/cart.jade" afterPath="$PROJECT_DIR$/Server/views/cart.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/views/cartDetails.jade" afterPath="$PROJECT_DIR$/Server/views/cartDetails.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/views/home.jade" afterPath="$PROJECT_DIR$/Server/views/home.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/views/login.jade" afterPath="$PROJECT_DIR$/Server/views/login.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/views/signup.jade" afterPath="$PROJECT_DIR$/Server/views/signup.jade" />
     </list>
     <ignored path="Markety.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,16 +24,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="managerreport.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/views/managerreport.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/views/login.jade">
           <provider selected="true" editor-type-id="text-editor">
@@ -121,7 +94,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/model/user.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -131,11 +104,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="product.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Server/model/product.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="135" column="59" selection-start-line="135" selection-start-column="59" selection-end-line="135" selection-end-column="59" />
+            <state relative-caret-position="270">
+              <caret line="93" column="14" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/model/db.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -199,10 +182,10 @@
         <option value="$PROJECT_DIR$/Server/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/Server/views/login.jade" />
         <option value="$PROJECT_DIR$/Server/views/signup.jade" />
-        <option value="$PROJECT_DIR$/Server/model/product.js" />
         <option value="$PROJECT_DIR$/Server/views/cartDetails.jade" />
         <option value="$PROJECT_DIR$/Server/model/store.js" />
         <option value="$PROJECT_DIR$/Server/routes/cartDetails.js" />
+        <option value="$PROJECT_DIR$/Server/model/product.js" />
       </list>
     </option>
   </component>
@@ -842,12 +825,12 @@
       <workItem from="1473621295694" duration="4291000" />
       <workItem from="1473695054238" duration="30103000" />
       <workItem from="1473924751522" duration="1248000" />
-      <workItem from="1473926036538" duration="63207000" />
+      <workItem from="1473926036538" duration="65435000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186090000" />
+    <option name="totallyTimeSpent" value="188318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="52" width="1295" height="716" extended-state="4" />
@@ -1110,14 +1093,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/model/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/routes/report.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
@@ -1214,14 +1189,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/model/product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="135" column="59" selection-start-line="135" selection-start-column="59" selection-end-line="135" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/views/signup.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
@@ -1274,6 +1241,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="161" column="13" selection-start-line="161" selection-start-column="13" selection-end-line="161" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/model/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/model/product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="93" column="14" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="14" />
           <folding />
         </state>
       </provider>
