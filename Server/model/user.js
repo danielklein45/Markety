@@ -1,16 +1,23 @@
+/*************************************************************************
+ File name: user.js
+ Manages all DB access to the user collection
+ *************************************************************************/
+
+// Access to Mongoose
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-
-//connect to database
 mongoose.Promise = global.Promise;
 
+// Cart schema
 var cart = Schema({
     StoreID: {type: Number},
     CartName: {type: String},
     ProductID: {type: [Number]},
-    UpdateDateTime: {type: Date}
+    UpdateDateTime: {type: Date},
+    Total: {type: Number}
 });
 
+// User schema
 var user = mongoose.model('user', {
     Username:  {type: String, unique: true, index: true},
     Password: {type: String},
@@ -18,29 +25,7 @@ var user = mongoose.model('user', {
     StoresManager: []
 });
 
-function createNewUser(newuser, newpassword, callable){
-    var newUser = new user({
-        Username: newuser,
-        Password: newpassword,
-        Carts: [],
-        StoresManager: []});
-    newUser.save(function (err) {
-        callable.call(this, err);
-    });
-}
-
-function authenticate(userToCheck, password, callable) {
-    user.find({Username: userToCheck, Password: password}, function (err, docs) {
-        if (docs.length===1){
-            callable.call(this);
-        }
-        else {
-            callable(this, "Not Found")
-
-        }
-    });
-}
-
+// Starting data
 function populateUsers(callable) {
     var user1 = new user({
         Username: "Daniel",
@@ -49,12 +34,14 @@ function populateUsers(callable) {
             StoreID: 1,
             CartName: "Weekend Cart",
             ProductID: [1,2,3,4],
-            UpdateDateTime: Date.now()
+            UpdateDateTime: Date.now(),
+            Total: 80.9
         },{
             StoreID: 1,
             CartName: "Party Cart",
             ProductID: [5],
-            UpdateDateTime: Date.now()
+            UpdateDateTime: Date.now(),
+            Total: 7.45
         }],
         StoresManager: [1]
     });
@@ -63,14 +50,45 @@ function populateUsers(callable) {
             console.log(err)
         }
         else {
-            console.log("user1 saved");
+            console.log("(model/user.js) user1 saved");
             callable.call();
         }
     });
 }
 
-function getStoresManagerByUsername(username, callable){
-    user.findOne({Username: username}, "StoresManager", function(err, docs){
+// Input: New user's name and password
+// Action: Adds the new user to the collection
+function createNewUser(userName, password, callable){
+    console.log("(model/user.js) Started createNewUser()");
+    var newUser = new user({
+        Username: userName,
+        Password: password,
+        Carts: [],
+        StoresManager: []});
+    newUser.save(function (err) {
+        callable.call(this, err);
+    });
+}
+
+// Input: User name & password
+// Action: Checks there's a user with the given password
+function authenticate(userToCheck, password, callable) {
+    console.log("(model/user.js) Started authenticate()");
+    user.find({Username: userToCheck, Password: password}, function (err, docs) {
+        if (docs.length===1){
+            callable.call(this);
+        }
+        else {
+            callable(this, "Not Found")
+        }
+    });
+}
+
+// Input: User name
+// Action: Returns the stores ID the given user is manager of
+function getStoresManagerByUsername(userName, callable){
+    console.log("(model/user.js) Started getStoresManagerByUsername()");
+    user.findOne({Username: userName}, "StoresManager", function(err, docs){
         if (err){
             console.log(err)
         }
@@ -80,22 +98,24 @@ function getStoresManagerByUsername(username, callable){
     })
 }
 
-function getAllCartsByUsername(username, callable) {
-    console.log("started getAllCartsByUsername() for Username: " + username);
-    user.findOne({Username: username}, "Carts", function(err, docs){
+// Input: User name
+// Action: Returns the user's carts
+function getAllCartsByUsername(userName, callable) {
+    console.log("(model/user.js) Started getAllCartsByUsername()");
+    user.findOne({Username: userName}, "Carts", function(err, docs){
         if (err){
             console.log(err)
         }
         else{
-            console.log("found: " + docs.Carts);
             callable(null, docs.Carts);
         }
     })
-
 }
 
+// Input: Cart ID
+// Action: Returns the cart's details
 function getCartDetailsByCartId(cartId, callable) {
-    console.log("(1) started getCartDetailsByCartId() for cartId: " + cartId);
+    console.log("(model/user.js) Started getCartDetailsByCartId()");
     user.findOne({'Carts._id': cartId}, function(err, docs){
         if (err){
             console.log(err)
@@ -103,28 +123,20 @@ function getCartDetailsByCartId(cartId, callable) {
         else{
             var carts = docs.Carts;
             for(var i=0; i<carts.length; i++){
-                if (carts[i]._id == cartId)
-                {
+                if (carts[i]._id == cartId){
                     var cartResult = carts[i];
                     break;
                 }
             }
             callable(null, cartResult);
-
-            // var carts = docs.Carts;
-            // console.log("(2) " + carts);
-            // var result = carts.filter(function(obj) {
-            //     return obj._id == cartId;
-            // });
-            // console.log("(3) " + result);
-            // console.log("(4) " + docs);
-            // callable(null, result);
         }
     })
 }
 
-function deleteProductFromCart(userId, cartId, productId, callable) {
-    console.log("deleteProductFromCart: PROD " + productId + " CART: " + cartId);
+// Input: Cart ID with the product's ID and price
+// Action: Deletes the product from the cart
+function deleteProductFromCart(productPrice, cartId, productId, callable) {
+    console.log("(model/user.js) Started deleteProductFromCart()");
     user.findOne({'Carts._id': cartId}, function(err, docs){
         if (err){
             console.log(err)
@@ -133,15 +145,18 @@ function deleteProductFromCart(userId, cartId, productId, callable) {
             var carts = docs.Carts;
             for (var i = 0; i < carts.length; i++) {
                 if (carts[i]._id == cartId) {
-                    console.log("FOUND IN LOOP CART TO DEL::::::::   " + cartId);
+                    user.update({'Carts._id': cartId}, { $inc: { 'Carts.$.Total': -1*productPrice} }, function(err){
+                        if(err){
+                            console.log(err);
+                        }
+                    });
                     carts[i].ProductID.pull(productId);
-                    console.log("PRODS AFTER::::::::   " + carts[i].ProductID);
                     break;
                 }
             }
             docs.save( function (err) {
                 if(err) {
-                    console.error('ERROR!');
+                    console.log(err);
                 }
             });
         }
@@ -149,8 +164,10 @@ function deleteProductFromCart(userId, cartId, productId, callable) {
     });
 }
 
+// Input: Cart name with user name and store ID
+// Action: Create a new cart for the user for the given store
 function addNewCart(userName, storeId, cartName, callable) {
-    console.log("addNewCart");
+    console.log("(model/user.js) Started addNewCart()");
     user.update({Username: userName}, {$push: {"Carts": {
         StoreID: storeId,
         CartName: cartName,
@@ -161,7 +178,6 @@ function addNewCart(userName, storeId, cartName, callable) {
                 console.log(err);
             }
         });
-    console.log('find the new one');
     user.findOne({'Carts.CartName': cartName}, function(err, docs) {
         if (err) {
             console.log(err)
@@ -174,14 +190,15 @@ function addNewCart(userName, storeId, cartName, callable) {
                     break;
                 }
             }
-            console.log("about to go back after breaking the loop");
             callable(null, cartResult._id);
         }
     })
 }
 
-function addProductToCart(userName, productId, cartId, callable) {
-    console.log("addProductToCart: PROD " + productId + " CART: " + cartId);
+// Input: Cart ID with the product's ID and price
+// Action: Adds the product to the cart
+function addProductToCart(productPrice, productId, cartId, callable) {
+    console.log("(model/user.js) Started addProductToCart()");
     user.findOne({'Carts._id': cartId}, function(err, docs){
         if (err){
             console.log(err)
@@ -190,15 +207,16 @@ function addProductToCart(userName, productId, cartId, callable) {
             var carts = docs.Carts;
             for (var i = 0; i < carts.length; i++) {
                 if (carts[i]._id == cartId) {
-                    console.log("FOUND IN LOOP CART TO EDIT::::::::   " + cartId);
+                    user.update({'Carts._id': cartId}, { $inc: { 'Carts.$.Total': productPrice} }, function(err){
+                        console.log(err);
+                    });
                     carts[i].ProductID.push(productId);
-                    console.log("PRODS AFTER::::::::   " + carts[i].ProductID);
                     break;
                 }
             }
             docs.save( function (err) {
                 if(err) {
-                    console.error('ERROR!');
+                    console.log(err);
                 }
             });
         }

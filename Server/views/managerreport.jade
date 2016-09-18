@@ -7,14 +7,17 @@ block content
     br
     .container
         h1 Manager Reports
-        div
-            table(class="table table-condensed", style="margin-top: 16px; color: black;")
-                thead
-                    tr
-                        th Description
-                        th Reported By
-                tbody
-                    each report in reports
+        if(reports)
+            div
+                table(class="table table-condensed", style="margin-top: 16px; color: black;")
+                    thead
                         tr
-                            td #{report.Description}
-                            td #{report.UserID}
+                            th Description
+                            th Reported By
+                    tbody
+                        each report in reports
+                            tr
+                                td #{report.Description}
+                                td #{report.UserID}
+        br
+        h5 #{message}

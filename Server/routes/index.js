@@ -1,8 +1,12 @@
+/*************************************************************************
+ File name: index.js
+ *************************************************************************/
+
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
+  console.log("(route/index.js) Started get()");
   res.render('index', { title: 'Markety' });
 });
 

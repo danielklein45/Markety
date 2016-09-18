@@ -27,7 +27,7 @@ block content
                                 tr
                                     td(align='center') #{cart.CartName}
                                     td(align='center') #{cart.ProductID.length}
-                                    td(align='center') it's all for free!
+                                    td(align='center') #{cart.Total}
                                     td(align='center')
 
                                         #cartDetails.center-vertical
@@ -36,4 +36,4 @@ block content
                                                 .controls
                                                     a.btn( href="/cartDetails?id=" + cart._id ) Edit Cart
 
-    label #{message}
+        h5 #{message}

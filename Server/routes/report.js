@@ -1,10 +1,13 @@
+/*************************************************************************
+ File name: report.js
+ *************************************************************************/
+
 var express = require('express');
 var router = express.Router();
-
 var store = require("../model/store");
 
-
 router.get('/', function(req, res) {
+    console.log("(route/report.js) Started get()");
     store.getStores(function (err, docs) {
         if (err) {
             res.send(err);
@@ -16,6 +19,7 @@ router.get('/', function(req, res) {
 });
 
 router.use('/', function(req, res){
+    console.log("(route/report.js) Started use()");
     store.addNewReport(req.session.user, req.body['dropdown'], req.body['problem'], function(err) {
         if (err){
             console.log(err)

@@ -1,8 +1,12 @@
+/*************************************************************************
+ File name: home.js
+ *************************************************************************/
+
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
 router.get('/', function(req, res) {
+    console.log("(route/home.js) Started get()");
     if (req.session){
         res.render('home', {username: req.session.user});
     }

@@ -1,16 +1,21 @@
+/*************************************************************************
+ File name: cart.js
+ Manages all cart page actions
+ *************************************************************************/
+
+// Access to collections and express
 var express = require('express');
 var router = express.Router();
 var user = require('../model/user');
 
+// Displays the user's carts
 router.get('/', function(req, res) {
-    //console.log("test")
+    console.log("(route/cart.js) Started get()");
     user.getAllCartsByUsername(req.session.user, function(err, docs){
         if(err){
             console.log(err);
         }
         else if(docs.length){
-            console.log(docs);
-
             res.render('cart', {cartsList : docs});
         }
         else {
@@ -19,8 +24,9 @@ router.get('/', function(req, res) {
     })
 });
 
-router.use('/', function(req, res) {
-    res.redirect('cartDetails/?id=' + req.body[name]);
-});
+
+// router.use('/', function(req, res) {
+//     res.redirect('cartDetails/?id=' + req.body[name]);
+// });
 
 module.exports = router;

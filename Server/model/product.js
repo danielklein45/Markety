@@ -1,7 +1,13 @@
-var mongoose = require("mongoose");
+/*************************************************************************
+ File name: product.js
+ Manages all DB access to the product collection
+ *************************************************************************/
 
+// Access to Mongoose
+var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
+// Product schema
 var product = mongoose.model('product', {
     ProductID: {type: Number, unique: true, index: true},
     Name: {type: String},
@@ -11,6 +17,7 @@ var product = mongoose.model('product', {
     Position: {type: String}
 });
 
+// Starting data
 function populateProduct(callable) {
     var db = mongoose.connect('mongodb://127.0.0.1:27017/Markety');
 
@@ -24,7 +31,7 @@ function populateProduct(callable) {
     });
     product1.save(function (err) {
         if (err) {console.log(err)}
-        else {console.log("product1 saved");}});
+        else {console.log("(model/product.js) product1 saved");}});
 
     var product2 = new product({
         ProductID: 2,
@@ -36,7 +43,7 @@ function populateProduct(callable) {
     });
     product2.save(function (err) {
         if (err) {console.log(err)}
-        else {console.log("product2 saved");}});
+        else {console.log("(model/product.js) product2 saved");}});
 
     var product3 = new product({
         ProductID: 3,
@@ -48,7 +55,7 @@ function populateProduct(callable) {
     });
     product3.save(function (err) {
         if (err) {console.log(err)}
-        else {console.log("product3 saved");}});
+        else {console.log("(model/product.js) product3 saved");}});
 
     var product4 = new product({
         ProductID: 4,
@@ -60,7 +67,7 @@ function populateProduct(callable) {
     });
     product4.save(function (err) {
         if (err) {console.log(err)}
-        else {console.log("product4 saved");}});
+        else {console.log("(model/product.js) product4 saved");}});
 
     var product5 = new product({
         ProductID: 5,
@@ -72,7 +79,7 @@ function populateProduct(callable) {
     });
     product5.save(function (err) {
         if (err) {console.log(err)}
-        else {console.log("product5 saved");}});
+        else {console.log("(model/product.js) product5 saved");}});
 
     var product6 = new product({
         ProductID: 6,
@@ -84,7 +91,7 @@ function populateProduct(callable) {
     });
     product6.save(function (err) {
         if (err) {console.log(err)}
-        else {console.log("product6 saved");}});
+        else {console.log("(model/product.js) product6 saved");}});
 
     var product7 = new product({
         ProductID: 7,
@@ -96,30 +103,32 @@ function populateProduct(callable) {
     });
     product7.save(function (err) {
         if (err) {console.log(err)}
-        else {console.log("product7 saved");}});
+        else {console.log("(model/product.js) product7 saved");}});
 }
 
+// Input: List of products IDs
+// Action: Return all description docs of the given IDs
 function getProductsDescriptionList(productIds, callable) {
-    console.log("(1) started getProductsDescriptionList()");
+    console.log("(model/product.js) Started getProductsDescriptionList()");
     product.find({'ProductID': {$in: productIds}}).sort({Position: 1}).exec(function(err, docs){
         if (err){
             console.log(err)
         }
         else{
-            console.log("FOUND:::::: " + docs);
             callable(null, docs);
         }
     })
 }
 
+// Input: Store ID
+// Action: Return all products that are sold in the given store
 function getProductsByStoreId(storeID, callable){
-    console.log("(1) started getProductsByStoreId() with storeID: " + storeID);
+    console.log("(model/product.js) Started getProductsByStoreId()");
     product.find({'StoreID': storeID}).sort({Name: 1}).exec(function(err, docs){
         if (err){
             console.log(err)
         }
         else{
-            console.log("FOUND::PRODUCTS:::: " + docs);
             callable(null, docs);
         }
     })
