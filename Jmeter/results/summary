@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="172" lt="172" ts="1474489935469" s="true" lb="Home Page" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="656"/>
+<httpSample t="216" lt="215" ts="1474489935644" s="true" lb="Login" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1067"/>
+<httpSample t="138" lt="138" ts="1474489935862" s="true" lb="Signup" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1009"/>
+<httpSample t="89" lt="89" ts="1474489936005" s="false" lb="SignupUserAlreadyExist" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1028">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: text expected to contain /User already exists
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="132" lt="19" ts="1474489936096" s="true" lb="SignInSuccess" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1280">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <httpSample t="19" lt="19" ts="1474489936096" s="true" lb="http://localhost:3000/login" rc="302" rm="Found" tn="" dt="text" by="434"/>
+  <httpSample t="93" lt="93" ts="1474489936135" s="true" lb="http://localhost:3000/home" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="846"/>
+</httpSample>
+<httpSample t="72" lt="72" ts="1474489936232" s="true" lb="SignInBadPassword" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1091">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="83" lt="83" ts="1474489936309" s="true" lb="SignInBadUsername" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1091">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+
+<httpSample t="47" lt="47" ts="1474490030911" s="true" lb="Home Page" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="656"/>
+<httpSample t="90" lt="90" ts="1474490030959" s="true" lb="Login" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1067"/>
+<httpSample t="54" lt="54" ts="1474490031051" s="true" lb="Signup" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1009"/>
+<httpSample t="64" lt="64" ts="1474490031111" s="true" lb="SignupUserAlreadyExist" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1028">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="73" lt="17" ts="1474490031178" s="true" lb="SignInSuccess" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1280">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <httpSample t="17" lt="17" ts="1474490031178" s="true" lb="http://localhost:3000/login" rc="302" rm="Found" tn="" dt="text" by="434"/>
+  <httpSample t="54" lt="54" ts="1474490031197" s="true" lb="http://localhost:3000/home" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="846"/>
+</httpSample>
+<httpSample t="58" lt="58" ts="1474490031253" s="true" lb="SignInBadPassword" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1091">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="57" lt="57" ts="1474490031317" s="true" lb="SignInBadUsername" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1091">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+
+<httpSample t="63" lt="27" ts="1474491295909" s="true" lb="SignInSuccess" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1280">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <httpSample t="27" lt="27" ts="1474491295909" s="true" lb="http://localhost:3000/login" rc="302" rm="Found" tn="" dt="text" by="434"/>
+  <httpSample t="35" lt="35" ts="1474491295937" s="true" lb="http://localhost:3000/home" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="846"/>
+</httpSample>
+<httpSample t="69" lt="69" ts="1474491295974" s="true" lb="SignInBadPassword" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1091">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="82" lt="82" ts="1474491296046" s="true" lb="SignInBadUsername" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1091">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="59" lt="59" ts="1474491296132" s="true" lb="SignupUserAlreadyExist" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1028">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="67" lt="67" ts="1474491296194" s="true" lb="SignupSuccess" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1035">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="29" lt="29" ts="1474491296269" s="true" lb="Home Page" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="656"/>
+<httpSample t="29" lt="29" ts="1474491296301" s="true" lb="Login" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1067"/>
+<httpSample t="53" lt="53" ts="1474491296332" s="true" lb="Signup" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1009"/>
+
+<httpSample t="62" lt="27" ts="1474491303642" s="true" lb="SignInSuccess" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1280">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <httpSample t="27" lt="27" ts="1474491303642" s="true" lb="http://localhost:3000/login" rc="302" rm="Found" tn="" dt="text" by="434"/>
+  <httpSample t="30" lt="30" ts="1474491303674" s="true" lb="http://localhost:3000/home" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="846"/>
+</httpSample>
+<httpSample t="41" lt="41" ts="1474491303707" s="true" lb="SignInBadPassword" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1091">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="65" lt="64" ts="1474491303750" s="true" lb="SignInBadUsername" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1091">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="55" lt="55" ts="1474491303822" s="true" lb="SignupUserAlreadyExist" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1028">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="67" lt="67" ts="1474491303880" s="true" lb="SignupSuccess" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1035">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="27" lt="27" ts="1474491303951" s="true" lb="Home Page" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="656"/>
+<httpSample t="61" lt="61" ts="1474491303980" s="true" lb="Login" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1067"/>
+<httpSample t="47" lt="47" ts="1474491304046" s="true" lb="Signup" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1009"/>
+
+<httpSample t="239" lt="30" ts="1474491335393" s="true" lb="SignInSuccess" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1280">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <httpSample t="30" lt="30" ts="1474491335393" s="true" lb="http://localhost:3000/login" rc="302" rm="Found" tn="" dt="text" by="434"/>
+  <httpSample t="204" lt="204" ts="1474491335428" s="true" lb="http://localhost:3000/home" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="846"/>
+</httpSample>
+<httpSample t="136" lt="136" ts="1474491335637" s="true" lb="SignInBadPassword" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1091">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="111" lt="111" ts="1474491335775" s="true" lb="SignInBadUsername" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1091">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="117" lt="117" ts="1474491335890" s="true" lb="SignupUserAlreadyExist" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1028">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="96" lt="96" ts="1474491336008" s="true" lb="SignupSuccess" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1035">
+  <assertionResult>
+    <name>Response Assertion</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="57" lt="57" ts="1474491336105" s="true" lb="Home Page" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="656"/>
+<httpSample t="105" lt="105" ts="1474491336169" s="true" lb="Login" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1067"/>
+<httpSample t="76" lt="76" ts="1474491336277" s="true" lb="Signup" rc="200" rm="OK" tn="Markety Users 1-1" dt="text" by="1009"/>
+
+</testResults>
