@@ -1,0 +1,48 @@
+1476012077215,241,Singup Test User,200,OK,10 New Users with new Cart each 2-1,text,true,1035,241
+1476012077210,352,SignInSuccess,200,OK,Markety Users 1-1,text,true,1280,43
+1476012077310,372,Singup Test User,200,OK,10 New Users with new Cart each 2-2,text,true,1035,372
+1476012077418,304,Singup Test User,200,OK,10 New Users with new Cart each 2-3,text,true,1035,304
+1476012077526,280,Singup Test User,200,OK,10 New Users with new Cart each 2-4,text,true,1035,280
+1476012077461,386,Login,200,OK,10 New Users with new Cart each 2-1,text,true,1283,148
+1476012077567,333,SignInBadPassword,200,OK,Markety Users 1-1,text,true,1091,333
+1476012077636,359,Singup Test User,200,OK,10 New Users with new Cart each 2-5,text,true,1035,359
+1476012077738,311,Singup Test User,200,OK,10 New Users with new Cart each 2-6,text,true,1035,311
+1476012077837,270,Singup Test User,200,OK,10 New Users with new Cart each 2-7,text,true,1035,270
+1476012077683,467,Login,200,OK,10 New Users with new Cart each 2-2,text,true,1283,253
+1476012077850,425,No Carts,200,OK,10 New Users with new Cart each 2-1,text,true,1080,425
+1476012077910,410,SignInBadUsername,200,OK,Markety Users 1-1,text,true,1091,410
+1476012077723,628,Login,200,OK,10 New Users with new Cart each 2-3,text,true,1283,213
+1476012077810,620,Login,200,OK,10 New Users with new Cart each 2-4,text,true,1283,240
+1476012077948,550,Singup Test User,200,OK,10 New Users with new Cart each 2-8,text,true,1035,550
+1476012078060,497,Singup Test User,200,OK,10 New Users with new Cart each 2-9,text,true,1035,497
+1476012077999,591,Login,200,OK,10 New Users with new Cart each 2-5,text,true,1282,361
+1476012078158,538,No Carts,200,OK,10 New Users with new Cart each 2-2,text,true,1080,538
+1476012078325,441,SignupUserAlreadyExist,200,OK,Markety Users 1-1,text,true,1028,440
+1476012078158,653,Singup Test User,200,OK,10 New Users with new Cart each 2-10,text,true,1035,653
+1476012078060,801,Login,200,OK,10 New Users with new Cart each 2-6,text,true,1282,390
+1476012078356,612,No Carts,200,OK,10 New Users with new Cart each 2-3,text,true,1080,612
+1476012078116,932,Login,200,OK,10 New Users with new Cart each 2-7,text,true,1282,337
+1476012078432,723,No Carts,200,OK,10 New Users with new Cart each 2-4,text,true,1080,723
+1476012078592,685,No Carts,200,OK,10 New Users with new Cart each 2-5,text,true,1080,685
+1476012078779,545,SignupSuccess,200,OK,Markety Users 1-1,text,true,1035,545
+1476012078562,814,Login,200,OK,10 New Users with new Cart each 2-9,text,true,1282,493
+1476012078500,902,Login,200,OK,10 New Users with new Cart each 2-8,text,true,1282,556
+1476012078870,632,No Carts,200,OK,10 New Users with new Cart each 2-6,text,true,1080,632
+1476012078819,736,Login,200,OK,10 New Users with new Cart each 2-10,text,true,1282,359
+1476012078279,1384,Create New Cart,200,OK,10 New Users with new Cart each 2-1,text,true,1903,324
+1476012079059,693,No Carts,200,OK,10 New Users with new Cart each 2-7,text,true,1080,693
+1476012079326,476,Home Page,200,OK,Markety Users 1-1,text,true,656,476
+1476012079404,521,No Carts,200,OK,10 New Users with new Cart each 2-8,text,true,1080,521
+1476012079384,591,No Carts,200,OK,10 New Users with new Cart each 2-9,text,true,1080,591
+1476012079808,227,Login,200,OK,Markety Users 1-1,text,true,1067,227
+1476012078698,1437,Create New Cart,200,OK,10 New Users with new Cart each 2-2,text,true,1903,468
+1476012079557,665,No Carts,200,OK,10 New Users with new Cart each 2-10,text,true,1080,665
+1476012078970,1383,Create New Cart,200,OK,10 New Users with new Cart each 2-3,text,true,1903,206
+1476012080041,362,Signup,200,OK,Markety Users 1-1,text,true,1009,362
+1476012079163,1352,Create New Cart,200,OK,10 New Users with new Cart each 2-4,text,true,1903,260
+1476012079279,1362,Create New Cart,200,OK,10 New Users with new Cart each 2-5,text,true,1902,392
+1476012079754,999,Create New Cart,200,OK,10 New Users with new Cart each 2-7,text,true,1902,226
+1476012079504,1334,Create New Cart,200,OK,10 New Users with new Cart each 2-6,text,true,1902,319
+1476012079936,1037,Create New Cart,200,OK,10 New Users with new Cart each 2-8,text,true,1902,422
+1476012079986,1167,Create New Cart,200,OK,10 New Users with new Cart each 2-9,text,true,1902,533
+1476012080226,1071,Create New Cart,200,OK,10 New Users with new Cart each 2-10,text,true,1902,317
